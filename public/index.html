@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Chatroom</title>
+<meta charset="utf-8">
+
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
+
+<!-- JS -->
+<script src="//code.jquery.com/jquery-2.1.0.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="main.js"></script> 
+</head>
+
+<body>
+
+<div class="grey-out hidden"><form class="user"><label for="username">Enter a nickname </label><input id="username" type="text" placeholder="Enter your name" autofocus><button type="submit" id="submitname">Submit</button></form></div>
+
+<div class="welcome"><p>Welcome to the Chatroom</p></div>
+<div id="messages"></div>
+<div id="users-box"><ul></ul></div>
+
+<input class="chatmessage" type="text">
+</body>
+</html>
