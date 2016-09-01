@@ -1,6 +1,6 @@
 # Chatroom
 
-This chatroom is an exercise in Node.js and Sockets.io. It contains the following features:
+This chatroom is an exercise in Node.js and Socket.io. It contains the following features:
 
 - A prompt for a user to enter a nickname.
 
