@@ -10,6 +10,8 @@ This chatroom is an exercise in Node.js and Socket.io. It contains the following
 
 - Display a status of who is typing in the User list window.
 
-- Users can send a direct message to other users in the following format:
+- Click on a name in the Users list to initiate a private message.
+
+Or, manually send a private message using the following format:
 
   ​         /m user-name message

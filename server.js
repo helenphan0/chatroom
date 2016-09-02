@@ -48,6 +48,8 @@ io.on('connection', function (socket) {
     // a client sends a message to another specific client
     socket.on('direct message', function(data) {       
         console.log( 'direct msg to: ' + socket.username + ' ' + data.message);
+        
+        // send private message through their room (created from join)
         io.in(data.username).emit('direct message', {username: socket.username, message: data.message});
     });
 
