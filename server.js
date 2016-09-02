@@ -48,7 +48,7 @@ io.on('connection', function (socket) {
     // a client sends a message to another specific client
     socket.on('direct message', function(data) {       
         console.log( 'direct msg to: ' + socket.username + ' ' + data.message);
-        io.in(usersList[j]).emit('direct message', {username: socket.username, message: data.message});
+        io.in(data.username).emit('direct message', {username: socket.username, message: data.message});
     });
 
     // a client disconnects from chatroom

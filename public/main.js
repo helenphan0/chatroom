@@ -12,13 +12,16 @@ $(document).ready(function() {
 
     $('.grey-out').fadeIn(500);
     $('.user').fadeIn(500);
+    $('#username').on("keydown", function (e) {
+        return e.which !== 32;
+    });
     $('.user').submit(function(){
         event.preventDefault();
         name = $('#username').val();
         socket.emit('join', name);
         $('.grey-out').fadeOut(300);
         $('.user').fadeOut(300);
-        $('.chatmessage').focus();
+        input.focus();
     });
     
     var myMessage = function(message) {
@@ -61,7 +64,6 @@ $(document).ready(function() {
         });
         li.children('span').fadeIn(0);
         li.children('span').fadeOut(750);
-        console.log(name + ' is typing');
     };
 
     input.on('keydown', function(event) {
@@ -75,7 +77,6 @@ $(document).ready(function() {
         var str = message.split(' ');
 
         if (str[0] == '/m') {
-            console.log('direct msg triggered: ' + str);
             var directname = str[1];
             var directmsg = str.slice(2).join(' ');
             socket.emit('direct message', {username: directname, message: directmsg});   
@@ -93,6 +94,13 @@ $(document).ready(function() {
         socket.emit('typing', name);
     });
 
+    $('#users-box').on('click', 'li', function() {
+        var target = $(this).text().split(' ');
+        target = target.slice(0,1);
+        target = target[0];
+        input.val('/m ' + target + ' ');
+        input.focus();
+    });
 
 
     socket.on('typing', typing);
